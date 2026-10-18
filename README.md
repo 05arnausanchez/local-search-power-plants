@@ -76,8 +76,52 @@ Salida legible:
 java -Xmx2g -cp "bin:lib/*" energia.Main seed=1 alg=HC init=greedy ops=mover+swap+vaciar heur=h2 legible=true
 ```
 
+## Experimentos
+
+Requisitos para el análisis (una vez):
+
+```bash
+sudo apt install python3-pandas python3-matplotlib python3-scipy   # Windows: pip install pandas matplotlib scipy
+```
+
+Cada script lanza un experimento completo (10 semillas por configuración) y guarda `resultados/expN_*.csv`.
+En Windows, los mismos scripts con extensión `.ps1` (`.\scripts\exp1_operadores.ps1`).
+
+| Script | Experimento |
+|---|---|
+| `exp1_operadores.sh` | 1. Conjuntos de operadores (HC, H1 y H2) |
+| `exp2_inicializacion.sh` | 2. Soluciones iniciales (orden, aleatoria, greedy) |
+| `exp3_sa.sh` | 3. Parámetros del Simulated Annealing (k, λ) |
+| `exp4_tiempos.sh` | 4. Tiempo de HC al aumentar clientes y centrales |
+| `exp5_penalizacion.sh` | 5. Garantizados por penalización desde la solución vacía (HC y SA) |
+| `exp6_centralesC.sh` | 6. Duplicar y triplicar las centrales C (HC y SA) |
+| `extra_alfa.sh` | Extra: peso α de las pérdidas en H2 |
+
+```bash
+bash scripts/exp1_operadores.sh
+python3 analisis/resumen.py resultados/exp1_operadores.csv
+```
+
+`resumen.py` imprime medias y desviación por configuración, compara el beneficio por parejas
+(t pareada y Wilcoxon) y guarda un boxplot en `analisis/`.
+
+**Orden:** los experimentos 1, 2 y 3 fijan operadores, heurística, solución inicial y parámetros del SA.
+Si cambian, hay que actualizar los valores marcados con `<--` en los scripts siguientes.
+
+**Repartir semillas** (útil para el experimento 5, el más largo):
+
+```bash
+SEMILLAS="1 2 3" SUFIJO=adrian bash scripts/exp5_penalizacion.sh   # genera exp5_penalizacion_adrian.csv
+bash scripts/juntar.sh exp5_penalizacion                            # une todos los parciales
+```
+
+Nota: con 40 centrales, a partir de unos 1.500 clientes los garantizados no caben y no existe
+solución válida, por eso el experimento 4 llega hasta 1.250 clientes.
+
 ## Estructura
 
 - `src/energia/`: estado y operadores (`EstadoEnergia`), sucesores HC/SA, heurísticas, goal test y `Main`
 - `lib/`: AIMA.jar y CentralEnergia.jar
-- `scripts/`: scripts de ayuda
+- `scripts/`: compilación y experimentos (`.sh` para Linux, `.ps1` para Windows)
+- `analisis/`: `resumen.py`, estadísticas y gráficas de los resultados
+- `resultados/`: CSV de los experimentos
