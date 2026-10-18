@@ -1,0 +1,15 @@
+Configuración = init 
+
+           beneficio          tiempo_ms           pasos       noGarServ       garServ       mwPerdidos        onA        onB        onC     
+                mean      std      mean     std    mean   std      mean   std    mean   std       mean   std mean  std  mean  std  mean  std
+config                                                                                                                                      
+aleatoria  1292597.5  65577.2   11354.3   832.0  1173.7  43.8     217.8   8.4   749.4  14.6      357.9  63.2  4.2  0.6   9.6  1.0  21.4  1.8
+greedy     1410062.0  53716.5    1933.0   617.3   151.4  75.9     247.1  17.3   749.4  14.6      368.3  87.3  4.9  0.3   9.7  0.5  21.9  2.0
+orden      1373355.8  68697.0   12571.2  1310.8  1125.9  46.4     219.2  10.8   749.4  14.6      391.4  87.9  5.0  0.0  10.0  0.0  12.3  5.1 
+
+Comparación pareada del beneficio (mismas semillas):
+  aleatoria  vs  greedy:  dif. media = -117464.5  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  aleatoria  vs  orden:  dif. media = -80758.3  p(t) = 0.0003  p(Wilcoxon) = 0.0039  gana el primero 1/10
+  greedy  vs  orden:  dif. media = 36706.2  p(t) = 0.0128  p(Wilcoxon) = 0.0195  gana el primero 9/10
+
+Gráfica guardada en analisis/exp2_inicializacion.png

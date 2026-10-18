@@ -1,0 +1,45 @@
+Configuración = ops | heur 
+
+                        beneficio          tiempo_ms          pasos       noGarServ       garServ       mwPerdidos         onA       onB        onC     
+                             mean      std      mean     std   mean   std      mean   std    mean   std       mean    std mean  std mean  std  mean  std
+config                                                                                                                                                  
+mover | h1              1376268.6  52239.4      15.5     9.1    0.3   0.7     243.6  18.1   749.4  14.6      409.3  104.0  5.0  0.0  9.8  0.4  24.0  1.1
+mover | h2              1376268.6  52239.4      11.4     4.9    0.3   0.7     243.6  18.1   749.4  14.6      409.1  104.0  5.0  0.0  9.8  0.4  24.0  1.1
+mover+swap | h1         1377564.5  51931.4     125.4    46.7    2.4   2.5     244.1  17.7   749.4  14.6      409.8  103.4  5.0  0.0  9.8  0.4  24.0  1.1
+mover+swap | h2         1386861.0  46129.1    2675.4  1392.7  137.8  78.6     247.4  17.5   749.4  14.6      347.7   89.4  5.0  0.0  9.8  0.4  23.9  1.2
+mover+swap+vaciar | h1  1390650.9  55050.6     134.1    23.7    2.9   2.0     244.1  17.7   749.4  14.6      421.9   98.6  4.9  0.3  9.7  0.5  23.7  0.9
+mover+swap+vaciar | h2  1410062.0  53716.5    1882.9   632.9  151.4  75.9     247.1  17.3   749.4  14.6      368.3   87.3  4.9  0.3  9.7  0.5  21.9  2.0
+mover+vaciar | h1       1389355.0  55680.7      18.7     9.6    0.8   0.9     243.6  18.1   749.4  14.6      421.5   99.3  4.9  0.3  9.7  0.5  23.7  0.9
+mover+vaciar | h2       1389355.0  55680.7      16.3     7.5    0.8   0.9     243.6  18.1   749.4  14.6      421.5   99.3  4.9  0.3  9.7  0.5  23.7  0.9 
+
+Comparación pareada del beneficio (mismas semillas):
+  mover | h1  vs  mover | h2:  dif. media = 0.0  p(t) = nan  p(Wilcoxon) = 1.0000  gana el primero 0/10
+  mover | h1  vs  mover+swap | h1:  dif. media = -1295.8  p(t) = 0.0364  p(Wilcoxon) = 0.0625  gana el primero 0/10
+  mover | h1  vs  mover+swap | h2:  dif. media = -10592.4  p(t) = 0.0298  p(Wilcoxon) = 0.0625  gana el primero 0/10
+  mover | h1  vs  mover+swap+vaciar | h1:  dif. media = -14382.2  p(t) = 0.0147  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  mover | h1  vs  mover+swap+vaciar | h2:  dif. media = -33793.3  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  mover | h1  vs  mover+vaciar | h1:  dif. media = -13086.4  p(t) = 0.0311  p(Wilcoxon) = 0.0625  gana el primero 0/10
+  mover | h1  vs  mover+vaciar | h2:  dif. media = -13086.4  p(t) = 0.0311  p(Wilcoxon) = 0.0625  gana el primero 0/10
+  mover | h2  vs  mover+swap | h1:  dif. media = -1295.8  p(t) = 0.0364  p(Wilcoxon) = 0.0625  gana el primero 0/10
+  mover | h2  vs  mover+swap | h2:  dif. media = -10592.4  p(t) = 0.0298  p(Wilcoxon) = 0.0625  gana el primero 0/10
+  mover | h2  vs  mover+swap+vaciar | h1:  dif. media = -14382.2  p(t) = 0.0147  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  mover | h2  vs  mover+swap+vaciar | h2:  dif. media = -33793.3  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  mover | h2  vs  mover+vaciar | h1:  dif. media = -13086.4  p(t) = 0.0311  p(Wilcoxon) = 0.0625  gana el primero 0/10
+  mover | h2  vs  mover+vaciar | h2:  dif. media = -13086.4  p(t) = 0.0311  p(Wilcoxon) = 0.0625  gana el primero 0/10
+  mover+swap | h1  vs  mover+swap | h2:  dif. media = -9296.5  p(t) = 0.0329  p(Wilcoxon) = 0.0625  gana el primero 0/10
+  mover+swap | h1  vs  mover+swap+vaciar | h1:  dif. media = -13086.4  p(t) = 0.0311  p(Wilcoxon) = 0.0625  gana el primero 0/10
+  mover+swap | h1  vs  mover+swap+vaciar | h2:  dif. media = -32497.5  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  mover+swap | h1  vs  mover+vaciar | h1:  dif. media = -11790.5  p(t) = 0.0610  p(Wilcoxon) = 0.2324  gana el primero 5/10
+  mover+swap | h1  vs  mover+vaciar | h2:  dif. media = -11790.5  p(t) = 0.0610  p(Wilcoxon) = 0.2324  gana el primero 5/10
+  mover+swap | h2  vs  mover+swap+vaciar | h1:  dif. media = -3789.9  p(t) = 0.6543  p(Wilcoxon) = 0.6250  gana el primero 5/10
+  mover+swap | h2  vs  mover+swap+vaciar | h2:  dif. media = -23201.0  p(t) = 0.0086  p(Wilcoxon) = 0.0156  gana el primero 1/10
+  mover+swap | h2  vs  mover+vaciar | h1:  dif. media = -2494.1  p(t) = 0.7784  p(Wilcoxon) = 0.6250  gana el primero 5/10
+  mover+swap | h2  vs  mover+vaciar | h2:  dif. media = -2494.1  p(t) = 0.7784  p(Wilcoxon) = 0.6250  gana el primero 5/10
+  mover+swap+vaciar | h1  vs  mover+swap+vaciar | h2:  dif. media = -19411.1  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  mover+swap+vaciar | h1  vs  mover+vaciar | h1:  dif. media = 1295.8  p(t) = 0.0364  p(Wilcoxon) = 0.0625  gana el primero 5/10
+  mover+swap+vaciar | h1  vs  mover+vaciar | h2:  dif. media = 1295.8  p(t) = 0.0364  p(Wilcoxon) = 0.0625  gana el primero 5/10
+  mover+swap+vaciar | h2  vs  mover+vaciar | h1:  dif. media = 20707.0  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  mover+swap+vaciar | h2  vs  mover+vaciar | h2:  dif. media = 20707.0  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  mover+vaciar | h1  vs  mover+vaciar | h2:  dif. media = 0.0  p(t) = nan  p(Wilcoxon) = 1.0000  gana el primero 0/10
+
+Gráfica guardada en analisis/exp1_operadores.png

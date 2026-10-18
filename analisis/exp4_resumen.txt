@@ -1,0 +1,54 @@
+Configuración = cli | nA | nB | nC 
+
+                      beneficio           tiempo_ms          pasos       noGarServ       garServ       mwPerdidos        onA        onB        onC     
+                           mean       std      mean     std   mean   std      mean   std    mean   std       mean   std mean  std  mean  std  mean  std
+config                                                                                                                                                 
+1000 | 10 | 20 | 50   1104661.0   45888.2    2975.3   460.4  146.2  16.7     250.2  14.7   749.4  14.6      220.4  22.4  2.5  0.7  16.0  1.6  34.1  2.3
+1000 | 15 | 30 | 75    924570.6   41472.7    6069.4   847.8  165.2  27.9     250.2  14.6   749.4  14.6      199.6  42.8  2.2  0.6  17.6  1.5  34.9  3.3
+1000 | 20 | 40 | 100   789197.6   50655.8   10293.5  1375.7  179.0  32.2     250.1  14.6   749.4  14.6      208.1  33.6  2.0  0.7  21.0  1.8  28.8  6.7
+1000 | 25 | 50 | 125   662184.8   37924.0   12017.8  2242.7  160.8  38.5     250.1  14.7   749.4  14.6      223.2  20.0  2.7  0.8  21.9  1.4  23.6  5.8
+1000 | 5 | 10 | 25    1410062.0   52283.9    1904.6   611.5  151.4  73.9     247.1  16.9   749.4  14.2      368.3  84.9  4.9  0.3   9.7  0.5  21.9  1.9
+1250 | 5 | 10 | 25    1518908.7  112192.4    2425.5   897.2  230.8  95.3     163.5  62.3   936.9  16.1      408.2  91.4  5.0  0.0   9.9  0.3  24.9  0.3
+250 | 5 | 10 | 25      126053.6   21482.1     263.3    32.6   49.1  15.8      60.1   5.1   189.9   5.1       96.3  13.1  0.0  0.0   3.9  0.9  15.8  1.9
+500 | 5 | 10 | 25      522742.1   39104.7     645.8   112.8   91.1  28.4     122.5   8.2   377.2   8.2      177.1  20.5  1.3  0.5   7.3  1.2  20.5  2.2
+750 | 5 | 10 | 25      963485.4   27253.2    1356.7   227.2  132.0  26.0     185.1  10.7   564.5  11.1      267.8  37.2  2.9  0.3   9.4  0.7  20.7  1.9 
+
+Comparación pareada del beneficio (mismas semillas):
+  1000 | 10 | 20 | 50  vs  1000 | 15 | 30 | 75:  dif. media = 180090.4  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1000 | 10 | 20 | 50  vs  1000 | 20 | 40 | 100:  dif. media = 315463.4  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1000 | 10 | 20 | 50  vs  1000 | 25 | 50 | 125:  dif. media = 442476.2  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1000 | 10 | 20 | 50  vs  1000 | 5 | 10 | 25:  dif. media = -305401.0  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  1000 | 10 | 20 | 50  vs  1250 | 5 | 10 | 25:  dif. media = -414247.7  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  1000 | 10 | 20 | 50  vs  250 | 5 | 10 | 25:  dif. media = 978607.4  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1000 | 10 | 20 | 50  vs  500 | 5 | 10 | 25:  dif. media = 581918.8  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1000 | 10 | 20 | 50  vs  750 | 5 | 10 | 25:  dif. media = 141175.6  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1000 | 15 | 30 | 75  vs  1000 | 20 | 40 | 100:  dif. media = 135373.0  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1000 | 15 | 30 | 75  vs  1000 | 25 | 50 | 125:  dif. media = 262385.8  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1000 | 15 | 30 | 75  vs  1000 | 5 | 10 | 25:  dif. media = -485491.4  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  1000 | 15 | 30 | 75  vs  1250 | 5 | 10 | 25:  dif. media = -594338.1  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  1000 | 15 | 30 | 75  vs  250 | 5 | 10 | 25:  dif. media = 798517.0  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1000 | 15 | 30 | 75  vs  500 | 5 | 10 | 25:  dif. media = 401828.5  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1000 | 15 | 30 | 75  vs  750 | 5 | 10 | 25:  dif. media = -38914.8  p(t) = 0.0256  p(Wilcoxon) = 0.0195  gana el primero 1/10
+  1000 | 20 | 40 | 100  vs  1000 | 25 | 50 | 125:  dif. media = 127012.8  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1000 | 20 | 40 | 100  vs  1000 | 5 | 10 | 25:  dif. media = -620864.4  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  1000 | 20 | 40 | 100  vs  1250 | 5 | 10 | 25:  dif. media = -729711.1  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  1000 | 20 | 40 | 100  vs  250 | 5 | 10 | 25:  dif. media = 663144.0  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1000 | 20 | 40 | 100  vs  500 | 5 | 10 | 25:  dif. media = 266455.4  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1000 | 20 | 40 | 100  vs  750 | 5 | 10 | 25:  dif. media = -174287.8  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  1000 | 25 | 50 | 125  vs  1000 | 5 | 10 | 25:  dif. media = -747877.2  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  1000 | 25 | 50 | 125  vs  1250 | 5 | 10 | 25:  dif. media = -856723.9  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  1000 | 25 | 50 | 125  vs  250 | 5 | 10 | 25:  dif. media = 536131.2  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1000 | 25 | 50 | 125  vs  500 | 5 | 10 | 25:  dif. media = 139442.6  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1000 | 25 | 50 | 125  vs  750 | 5 | 10 | 25:  dif. media = -301300.6  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  1000 | 5 | 10 | 25  vs  1250 | 5 | 10 | 25:  dif. media = -108846.7  p(t) = 0.0017  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  1000 | 5 | 10 | 25  vs  250 | 5 | 10 | 25:  dif. media = 1284008.4  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1000 | 5 | 10 | 25  vs  500 | 5 | 10 | 25:  dif. media = 887319.9  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1000 | 5 | 10 | 25  vs  750 | 5 | 10 | 25:  dif. media = 446576.6  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1250 | 5 | 10 | 25  vs  250 | 5 | 10 | 25:  dif. media = 1392855.1  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1250 | 5 | 10 | 25  vs  500 | 5 | 10 | 25:  dif. media = 996166.6  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  1250 | 5 | 10 | 25  vs  750 | 5 | 10 | 25:  dif. media = 555423.3  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  250 | 5 | 10 | 25  vs  500 | 5 | 10 | 25:  dif. media = -396688.6  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  250 | 5 | 10 | 25  vs  750 | 5 | 10 | 25:  dif. media = -837431.8  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  500 | 5 | 10 | 25  vs  750 | 5 | 10 | 25:  dif. media = -440743.2  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+
+Gráfica guardada en analisis/exp4_tiempos.png
