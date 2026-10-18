@@ -1,0 +1,30 @@
+Configuración = alg | k | nC 
+
+                 beneficio          tiempo_ms         pasos       noGarServ       garServ       mwPerdidos        onA        onB        onC     
+                      mean      std      mean    std   mean   std      mean   std    mean   std       mean   std mean  std  mean  std  mean  std
+config                                                                                                                                          
+HC | 1000 | 25   1410062.0  53716.5    1400.4  550.5  151.4  75.9     247.1  17.3   749.4  14.6      368.3  87.3  4.9  0.3   9.7  0.5  21.9  2.0
+HC | 1000 | 50   1216827.0  42860.5    1728.8  254.3  173.5  35.1     250.4  14.4   749.4  14.6      261.8  46.0  3.0  0.5   9.7  0.5  41.3  2.9
+HC | 1000 | 75   1043810.0  47688.0    1717.7  242.5  172.5  27.6     249.1  14.6   749.4  14.6      193.1  32.8  1.6  0.5   8.6  0.7  58.7  2.8
+SA | 10000 | 25  1422652.8  59943.8    2004.5  976.0    NaN   NaN     244.6  17.6   749.4  14.6      396.1  98.9  5.0  0.0  10.0  0.0  17.0  4.3
+SA | 10000 | 50  1351934.2  74394.0     700.1   81.2    NaN   NaN     244.0  14.1   749.4  14.6      404.6  67.6  4.7  0.5   9.4  0.7  19.2  3.8
+SA | 10000 | 75  1258739.7  69923.8     486.3   35.7    NaN   NaN     241.5  14.5   749.4  14.6      390.4  92.7  4.2  0.6   8.6  1.1  24.6  3.7 
+
+Comparación pareada del beneficio (mismas semillas):
+  HC | 1000 | 25  vs  HC | 1000 | 50:  dif. media = 193235.0  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  HC | 1000 | 25  vs  HC | 1000 | 75:  dif. media = 366252.0  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  HC | 1000 | 25  vs  SA | 10000 | 25:  dif. media = -12590.8  p(t) = 0.2278  p(Wilcoxon) = 0.4316  gana el primero 4/10
+  HC | 1000 | 25  vs  SA | 10000 | 50:  dif. media = 58127.8  p(t) = 0.0024  p(Wilcoxon) = 0.0059  gana el primero 9/10
+  HC | 1000 | 25  vs  SA | 10000 | 75:  dif. media = 151322.3  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  HC | 1000 | 50  vs  HC | 1000 | 75:  dif. media = 173017.0  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  HC | 1000 | 50  vs  SA | 10000 | 25:  dif. media = -205825.8  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  HC | 1000 | 50  vs  SA | 10000 | 50:  dif. media = -135107.2  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  HC | 1000 | 50  vs  SA | 10000 | 75:  dif. media = -41912.7  p(t) = 0.0082  p(Wilcoxon) = 0.0098  gana el primero 2/10
+  HC | 1000 | 75  vs  SA | 10000 | 25:  dif. media = -378842.8  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  HC | 1000 | 75  vs  SA | 10000 | 50:  dif. media = -308124.2  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  HC | 1000 | 75  vs  SA | 10000 | 75:  dif. media = -214929.7  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  SA | 10000 | 25  vs  SA | 10000 | 50:  dif. media = 70718.5  p(t) = 0.0002  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  SA | 10000 | 25  vs  SA | 10000 | 75:  dif. media = 163913.1  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  SA | 10000 | 50  vs  SA | 10000 | 75:  dif. media = 93194.6  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+
+Gráfica guardada en analisis/exp6_centralesC.png

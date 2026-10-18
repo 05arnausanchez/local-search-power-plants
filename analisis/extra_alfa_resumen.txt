@@ -1,0 +1,64 @@
+Configuración = init | alfa 
+
+                beneficio          tiempo_ms           pasos       noGarServ       garServ       mwPerdidos        onA        onB        onC     
+                     mean      std      mean     std    mean   std      mean   std    mean   std       mean   std mean  std  mean  std  mean  std
+config                                                                                                                                           
+greedy | 0.0    1390650.9  55050.6     101.3    23.6     2.9   2.0     244.1  17.7   749.4  14.6      421.9  98.6  4.9  0.3   9.7  0.5  23.7  0.9
+greedy | 1.0    1410179.4  53538.2    1392.4   458.1   149.6  75.2     247.2  17.2   749.4  14.6      368.4  87.3  4.9  0.3   9.7  0.5  21.9  2.0
+greedy | 10.0   1410062.0  53716.5    1352.2   451.7   151.4  75.9     247.1  17.3   749.4  14.6      368.3  87.3  4.9  0.3   9.7  0.5  21.9  2.0
+greedy | 200.0  1411146.9  54244.7    1476.1   482.4   135.4  52.3     247.2  17.1   749.4  14.6      364.9  87.3  4.9  0.3   9.7  0.5  21.7  2.2
+greedy | 50.0   1411398.5  54538.0    1473.1   618.2   145.1  62.5     247.4  17.1   749.4  14.6      366.7  87.7  4.9  0.3   9.7  0.5  21.8  2.1
+orden | 0.0     1005540.7  68202.9     105.7    22.7     3.3   1.3       2.5   1.4   749.4  14.6     1231.8  57.2  5.0  0.0  10.0  0.0  13.6  5.0
+orden | 1.0     1371497.5  68900.0    8142.3   542.3  1158.4  44.4     217.8  11.7   749.4  14.6      396.8  88.3  5.0  0.0  10.0  0.0  12.2  5.1
+orden | 10.0    1373355.8  68697.0    8439.9  1185.9  1125.9  46.4     219.2  10.8   749.4  14.6      391.4  87.9  5.0  0.0  10.0  0.0  12.3  5.1
+orden | 200.0   1367492.8  70548.4    6944.6   647.6   845.1  42.5     210.4  13.9   749.4  14.6      386.5  84.7  5.0  0.0  10.0  0.0  10.2  4.5
+orden | 50.0    1372192.8  68972.9    7663.8   515.4  1015.3  41.9     219.0  10.7   749.4  14.6      394.3  87.3  5.0  0.0  10.0  0.0  12.1  5.1 
+
+Comparación pareada del beneficio (mismas semillas):
+  greedy | 0.0  vs  greedy | 1.0:  dif. media = -19528.5  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  greedy | 0.0  vs  greedy | 10.0:  dif. media = -19411.1  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  greedy | 0.0  vs  greedy | 200.0:  dif. media = -20496.0  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  greedy | 0.0  vs  greedy | 50.0:  dif. media = -20747.6  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  greedy | 0.0  vs  orden | 0.0:  dif. media = 385110.2  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  greedy | 0.0  vs  orden | 1.0:  dif. media = 19153.4  p(t) = 0.1268  p(Wilcoxon) = 0.1055  gana el primero 8/10
+  greedy | 0.0  vs  orden | 10.0:  dif. media = 17295.1  p(t) = 0.1531  p(Wilcoxon) = 0.1055  gana el primero 8/10
+  greedy | 0.0  vs  orden | 200.0:  dif. media = 23158.1  p(t) = 0.0887  p(Wilcoxon) = 0.0840  gana el primero 8/10
+  greedy | 0.0  vs  orden | 50.0:  dif. media = 18458.1  p(t) = 0.1363  p(Wilcoxon) = 0.1055  gana el primero 8/10
+  greedy | 1.0  vs  greedy | 10.0:  dif. media = 117.4  p(t) = 0.3496  p(Wilcoxon) = 0.6250  gana el primero 3/10
+  greedy | 1.0  vs  greedy | 200.0:  dif. media = -967.5  p(t) = 0.2189  p(Wilcoxon) = 0.6875  gana el primero 4/10
+  greedy | 1.0  vs  greedy | 50.0:  dif. media = -1219.1  p(t) = 0.1484  p(Wilcoxon) = 0.1250  gana el primero 1/10
+  greedy | 1.0  vs  orden | 0.0:  dif. media = 404638.7  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  greedy | 1.0  vs  orden | 1.0:  dif. media = 38681.9  p(t) = 0.0111  p(Wilcoxon) = 0.0195  gana el primero 9/10
+  greedy | 1.0  vs  orden | 10.0:  dif. media = 36823.6  p(t) = 0.0126  p(Wilcoxon) = 0.0195  gana el primero 9/10
+  greedy | 1.0  vs  orden | 200.0:  dif. media = 42686.6  p(t) = 0.0087  p(Wilcoxon) = 0.0195  gana el primero 9/10
+  greedy | 1.0  vs  orden | 50.0:  dif. media = 37986.6  p(t) = 0.0117  p(Wilcoxon) = 0.0195  gana el primero 9/10
+  greedy | 10.0  vs  greedy | 200.0:  dif. media = -1084.9  p(t) = 0.1493  p(Wilcoxon) = 0.1562  gana el primero 2/10
+  greedy | 10.0  vs  greedy | 50.0:  dif. media = -1336.5  p(t) = 0.1044  p(Wilcoxon) = 0.0625  gana el primero 0/10
+  greedy | 10.0  vs  orden | 0.0:  dif. media = 404521.3  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  greedy | 10.0  vs  orden | 1.0:  dif. media = 38564.5  p(t) = 0.0113  p(Wilcoxon) = 0.0195  gana el primero 9/10
+  greedy | 10.0  vs  orden | 10.0:  dif. media = 36706.2  p(t) = 0.0128  p(Wilcoxon) = 0.0195  gana el primero 9/10
+  greedy | 10.0  vs  orden | 200.0:  dif. media = 42569.2  p(t) = 0.0088  p(Wilcoxon) = 0.0195  gana el primero 9/10
+  greedy | 10.0  vs  orden | 50.0:  dif. media = 37869.2  p(t) = 0.0119  p(Wilcoxon) = 0.0195  gana el primero 9/10
+  greedy | 200.0  vs  greedy | 50.0:  dif. media = -251.6  p(t) = 0.2865  p(Wilcoxon) = 0.2969  gana el primero 2/10
+  greedy | 200.0  vs  orden | 0.0:  dif. media = 405606.2  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  greedy | 200.0  vs  orden | 1.0:  dif. media = 39649.4  p(t) = 0.0107  p(Wilcoxon) = 0.0195  gana el primero 9/10
+  greedy | 200.0  vs  orden | 10.0:  dif. media = 37791.1  p(t) = 0.0122  p(Wilcoxon) = 0.0195  gana el primero 9/10
+  greedy | 200.0  vs  orden | 200.0:  dif. media = 43654.1  p(t) = 0.0083  p(Wilcoxon) = 0.0195  gana el primero 9/10
+  greedy | 200.0  vs  orden | 50.0:  dif. media = 38954.1  p(t) = 0.0113  p(Wilcoxon) = 0.0195  gana el primero 9/10
+  greedy | 50.0  vs  orden | 0.0:  dif. media = 405857.8  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 10/10
+  greedy | 50.0  vs  orden | 1.0:  dif. media = 39901.0  p(t) = 0.0103  p(Wilcoxon) = 0.0195  gana el primero 9/10
+  greedy | 50.0  vs  orden | 10.0:  dif. media = 38042.7  p(t) = 0.0117  p(Wilcoxon) = 0.0195  gana el primero 9/10
+  greedy | 50.0  vs  orden | 200.0:  dif. media = 43905.7  p(t) = 0.0080  p(Wilcoxon) = 0.0195  gana el primero 9/10
+  greedy | 50.0  vs  orden | 50.0:  dif. media = 39205.7  p(t) = 0.0109  p(Wilcoxon) = 0.0195  gana el primero 9/10
+  orden | 0.0  vs  orden | 1.0:  dif. media = -365956.8  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  orden | 0.0  vs  orden | 10.0:  dif. media = -367815.1  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  orden | 0.0  vs  orden | 200.0:  dif. media = -361952.0  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  orden | 0.0  vs  orden | 50.0:  dif. media = -366652.0  p(t) = 0.0000  p(Wilcoxon) = 0.0020  gana el primero 0/10
+  orden | 1.0  vs  orden | 10.0:  dif. media = -1858.3  p(t) = 0.0276  p(Wilcoxon) = 0.0371  gana el primero 2/10
+  orden | 1.0  vs  orden | 200.0:  dif. media = 4004.7  p(t) = 0.0180  p(Wilcoxon) = 0.0195  gana el primero 9/10
+  orden | 1.0  vs  orden | 50.0:  dif. media = -695.3  p(t) = 0.1243  p(Wilcoxon) = 0.1934  gana el primero 3/10
+  orden | 10.0  vs  orden | 200.0:  dif. media = 5863.1  p(t) = 0.0146  p(Wilcoxon) = 0.0273  gana el primero 7/10
+  orden | 10.0  vs  orden | 50.0:  dif. media = 1163.0  p(t) = 0.0487  p(Wilcoxon) = 0.0273  gana el primero 7/10
+  orden | 200.0  vs  orden | 50.0:  dif. media = -4700.0  p(t) = 0.0212  p(Wilcoxon) = 0.0195  gana el primero 1/10
+
+Gráfica guardada en analisis/extra_alfa.png
