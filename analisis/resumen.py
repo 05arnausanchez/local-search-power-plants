@@ -2,13 +2,14 @@
 Resumen de un CSV de experimentos: media y desviación por configuración y boxplots.
 
 Uso:   python analisis/resumen.py resultados/exp1_operadores.csv
-Requisitos: pip install pandas matplotlib scipy
+Requisitos: python -m pip install pandas matplotlib scipy numpy
 """
 import sys
 from itertools import combinations
 from pathlib import Path
 
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 from scipy import stats
 
@@ -48,6 +49,11 @@ def main(ruta):
         print(f"  {a}  vs  {b}:  dif. media = {(x - y).mean():.1f}  "
               f"p(t) = {t.pvalue:.4f}  p(Wilcoxon) = {w:.4f}  gana el primero {gana}/{len(x)}")
 
+    # experimento 4: líneas de tiempo frente al tamaño, en vez de boxplots
+    if "4clientes" in set(df["exp"].astype(str)):
+        grafica_tiempos(df, ruta)
+        return
+
     # boxplots de beneficio y tiempo
     fig, ejes = plt.subplots(1, 2, figsize=(max(8, 1.6 * df["config"].nunique()), 5))
     for eje, m in zip(ejes, ["beneficio", "tiempo_ms"]):
@@ -55,6 +61,32 @@ def main(ruta):
         eje.set_title(m)
         eje.set_xlabel("")
     fig.suptitle(Path(ruta).stem)
+    fig.tight_layout()
+    salida = Path("analisis") / (Path(ruta).stem + ".png")
+    fig.savefig(salida, dpi=150)
+    print(f"\nGráfica guardada en {salida}")
+
+
+def grafica_tiempos(df, ruta):
+    """Experimento 4: tiempo medio (± desviación) frente a clientes y frente a centrales."""
+    df = df.assign(centrales=df["nA"] + df["nB"] + df["nC"], tiempo_s=df["tiempo_ms"] / 1000)
+    series = [("4clientes", "cli", "Número de clientes (40 centrales)"),
+              ("4centrales", "centrales", "Número de centrales (1.000 clientes)")]
+    fig, ejes = plt.subplots(1, 2, figsize=(11, 4.2))
+    for eje, (exp, x, etiqueta) in zip(ejes, series):
+        g = (df[df["exp"] == exp].groupby(x)
+             .agg(t=("tiempo_s", "mean"), sd=("tiempo_s", "std"), pasos=("pasos", "mean"))
+             .sort_index())
+        b = np.polyfit(np.log(g.index), np.log(g["t"]), 1)[0]   # exponente: recta en log-log
+        eje.errorbar(g.index, g["t"], yerr=g["sd"], marker="o", capsize=4)
+        eje.set_xticks(g.index)
+        eje.set_xlabel(etiqueta)
+        eje.set_ylabel("Tiempo de búsqueda (s)")
+        eje.set_title(f"Crecimiento ≈ tamaño^{b:.2f}")
+        eje.grid(alpha=0.3)
+        print(f"\n{etiqueta}  (exponente del tiempo = {b:.2f})")
+        print(g.assign(t_por_paso_ms=1000 * g["t"] / g["pasos"]).round(2).to_string())
+    fig.suptitle("Tiempo de Hill Climbing según el tamaño (media ± desviación)")
     fig.tight_layout()
     salida = Path("analisis") / (Path(ruta).stem + ".png")
     fig.savefig(salida, dpi=150)
